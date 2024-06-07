@@ -3,6 +3,7 @@ import {
   Dimensions,
   StyleSheet,
   View,
+  Image,
   Text,
   TouchableOpacity,
   FlatList,
@@ -10,95 +11,67 @@ import {
 
 const persons = [
   {
-    id: "1",
-    date: "01-02-2024",
-    img: "../app/assets/favicon.png",
-    name: "Earnest Green",
+    title: "Kingdom of the Planet of the Apes",
+    id: 1,
+    description: "Action",
+    releaseDate: "01-01-2024",
+    imageUrl: "https://image.tmdb.org/t/p/w342/gKkl37BQuKTanygYQG1pyYgLVgf.jpg",
   },
   {
-    id: "2",
-    date: "01-02-2024",
-    img: "../app/assets/favicon.png",
-    name: "Winston Orn",
+    title: "Civil War",
+    id: 2,
+    description: "Action",
+    releaseDate: "01-01-2024",
+    imageUrl: 'https://image.tmdb.org/t/p/w342/sh7Rg8Er3tFcN9BpKIPOMvALgZd.jpg'
   },
   {
-    id: "3",
-    date: "01-02-2024",
-    img: "../app/assets/favicon.png",
-    name: "Carlton Collins",
+    title: "Godzilla x Kong: The New Empire",
+    id: 3,
+    description: "Action",
+    releaseDate: "01-01-2024",
+    imageUrl: "https://image.tmdb.org/t/p/w342/z1p34vh7dEOnLDmyCrlUVLuoDzd.jpg",
   },
   {
-    id: "4",
-    date: "01-02-2024",
-    img: "../app/assets/favicon.png",
-    name: "Malcolm Labadie",
+    title: "Atlas",
+    id: 4,
+    description: "Action",
+    releaseDate: "01-01-2024",
+    imageUrl: "https://image.tmdb.org/t/p/w342/bcM2Tl5HlsvPBnL8DKP9Ie6vU4r.jpg",
   },
   {
-    id: "5",
-    date: "01-02-2024",
-    img: "../app/assets/favicon.png",
-    name: "Michelle Dare",
+    title: "Tarot",
+    id: 5,
+    description: "Action",
+    releaseDate: "01-01-2024",
+    imageUrl: "https://image.tmdb.org/t/p/w342/gAEUXC37vl1SnM7PXsHTF23I2vq.jpg",
   },
   {
-    id: "6",
-    date: "01-02-2024",
-    img: "../app/assets/favicon.png",
-    name: "Carlton Zieme",
+    title: "The Fall Guy",
+    id: 6,
+    description: "Action",
+    releaseDate: "01-01-2024",
+    imageUrl: "https://image.tmdb.org/t/p/w342/tSz1qsmSJon0rqjHBxXZmrotuse.jpg",
   },
   {
-    id: "7",
-    date: "01-02-2024",
-    img: "../app/assets/favicon.png",
-    name: "Jessie Dickinson",
+    title: "Boy Kills World",
+    id: 7,
+    description: "Action",
+    releaseDate: "01-01-2024",
+    imageUrl: "https://image.tmdb.org/t/p/w342/25JskXmchcYwj3jHRmcPm738MpB.jpg",
   },
   {
-    id: "8",
-    date: "01-02-2024",
-    img: "../app/assets/favicon.png",
-    name: "Julian Gulgowski",
+    title: "Furiosa: A Mad Max Saga",
+    id: 8,
+    description: "Action",
+    releaseDate: "01-01-2024",
+    imageUrl: "https://image.tmdb.org/t/p/w342/iADOJ8Zymht2JPMoy3R7xceZprc.jpg",
   },
   {
-    id: "9",
-    date: "01-02-2024",
-    img: "../app/assets/favicon.png",
-    name: "Ellen Veum",
-  },
-  {
-    id: "10",
-    date: "01-02-2024",
-    img: "../app/assets/favicon.png",
-    name: "Lorena Rice",
-  },
-
-  {
-    id: "11",
-    date: "01-02-2024",
-    img: "../app/assets/favicon.png",
-    name: "Carlton Zieme",
-  },
-  {
-    id: "12",
-    date: "01-02-2024",
-    img: "../app/assets/favicon.png",
-    name: "Jessie Dickinson",
-  },
-  {
-    id: "13",
-    date: "01-02-2024",
-    img: "../app/assets/favicon.png",
-    name: "Julian Gulgowski",
-  },
-  {
-    id: "14",
-    date: "01-02-2024",
-    img: "../app/assets/favicon.png",
-    name: "Ellen Veum",
-  },
-  {
-    id: "15",
-    date: "01-02-2024",
-    img: "../app/assets/favicon.png",
-    name: "Lorena Rice",
+    title: "The Garfield Movie",
+    id: 9,
+    description: "Action",
+    releaseDate: "01-01-2024",
+    imageUrl: "https://image.tmdb.org/t/p/w342/p6AbOJvMQhBmffd0PIv0u8ghWeY.jpg",
   },
 ];
 
@@ -110,15 +83,22 @@ function MoviesList() {
         data={persons}
         renderItem={({ item }) => (
           <TouchableOpacity style={styles.movieItem}>
-            <View>
-            <Text>{item.name}</Text>
-            <Text>{item.date}</Text>
+              <Image
+                style={{ width: '100%', height: 200, }}
+                source={{
+                  uri: `${item.imageUrl}`,
+                }}
+                resizeMode={'contain'} 
+                />
+                <View>
+              <Text  style={{color: '#FAFAFA'}}>{item.title}</Text>
+              {/* <Text>{item.description}</Text> */}
+              <Text style={{color: '#777777'}}>{item.releaseDate}</Text>
             </View>
           </TouchableOpacity>
         )}
         contentContainerStyle={styles.movieContainer}
         keyExtractor={(item) => item.id}
-        
       />
     </View>
   );
@@ -127,30 +107,29 @@ function MoviesList() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'grey',
+    backgroundColor: "#222",
     padding: 10,
   },
   movieItem: {
     paddingVertical: 5,
     margin: 5,
-    borderWidth: 1,
-    borderRadius: 10,
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: (Dimensions.get('window').width /3) - 20,
-    backgroundColor: 'red',
+    padding: 2,
+    alignItems: "center",
+    justifyContent: "center",
+    width: Dimensions.get("window").width / 3 - 20,
     
   },
   movieContainer: {
-    flex: 1,
     padding: 5,
-    flexDirection: 'row',
-    flexWrap: 'wrap'
-    
+    flexDirection: "row",
+    flexWrap: "wrap",
   },
   headerSep: {
-    borderBottomWidth: 1,
-    fontSize: 20
+    borderBottomWidth: 2,
+    borderColor: 'blue',
+    fontSize: 20,
+    color: '#FAFAFA',
+    padding: 5,
   },
 });
 

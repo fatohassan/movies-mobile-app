@@ -12,9 +12,9 @@ export default function App() {
       <HeaderView />
       <StatusBar style="auto" />
       <MoviesListView />
-      <NavigationContainer>
+      {/* <NavigationContainer>
         <MovieItemView />
-      </NavigationContainer>
+      </NavigationContainer> */}
     </View>
   );
 }
@@ -22,7 +22,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    margin: '20rem'
+    backgroundColor: 'rgba(50, 50, 50, 0.85)',
+    margin: '20rem',
   },
 });

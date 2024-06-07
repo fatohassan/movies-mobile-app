@@ -13,12 +13,13 @@ function HeaderView() {
 const styles = StyleSheet.create({
     container: {
         top: 10,
-        margin: 5
+        margin: 5,
     },
     text: {
         marginLeft: 10,
         top: 25,
         fontSize: 20,
+        
        
     }
 })
