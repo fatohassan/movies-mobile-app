@@ -105,20 +105,20 @@ const persons = [
 function MoviesList() {
   return (
     <View style={styles.container}>
+      <Text style={styles.headerSep}>Now playing</Text>
       <FlatList
         data={persons}
         renderItem={({ item }) => (
-          <TouchableOpacity style={styles.movieContainer}>
-            <View style={styles.movieItem}>
+          <TouchableOpacity style={styles.movieItem}>
+            <View>
             <Text>{item.name}</Text>
             <Text>{item.date}</Text>
             </View>
           </TouchableOpacity>
         )}
+        contentContainerStyle={styles.movieContainer}
         keyExtractor={(item) => item.id}
-        ListHeaderComponent={() => (
-          <Text style={styles.headerSep}>Now Playing</Text>
-        )}
+        
       />
     </View>
   );
@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'grey',
-    padding: 10,
+    
   },
   movieItem: {
     paddingVertical: 5,
@@ -145,7 +145,8 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 5,
     flexDirection: 'row',
-    flexWrap: 'wrap'
+    flexWrap: 'wrap',
+    justifyContent: 'space-between'
     
   },
   headerSep: {
