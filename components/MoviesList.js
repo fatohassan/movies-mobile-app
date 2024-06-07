@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'grey',
-    
+    padding: 10,
   },
   movieItem: {
     paddingVertical: 5,
@@ -137,16 +137,15 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     alignItems: 'center',
     justifyContent: 'center',
-    width: Dimensions.get('window').width /3,
-    backgroundColor: 'red'
+    width: (Dimensions.get('window').width /3) - 20,
+    backgroundColor: 'red',
     
   },
   movieContainer: {
     flex: 1,
     padding: 5,
     flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'space-between'
+    flexWrap: 'wrap'
     
   },
   headerSep: {
