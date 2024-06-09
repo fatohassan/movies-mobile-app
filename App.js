@@ -3,8 +3,18 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import MovieItemView from "./app/screens/MovieItemView";
 import MoviesListView from "./app/screens/MoviesListView";
+import { Text } from "react-native";
 
 const Stack = createNativeStackNavigator();
+
+function LogoTitle() {
+  return (
+    <Text style={{ color: "#FAFAFA", fontWeight: "bold", fontSize: 20 }}>
+      Trail
+      <Text style={{ color: "#1d81e2" }}>Spot</Text>
+    </Text>
+  );
+}
 
 export default function App() {
   return (
@@ -14,23 +24,24 @@ export default function App() {
           name="Home"
           component={MoviesListView}
           options={{
-            title: "TrailSpot",
+            headerTitle: (props) => <LogoTitle {...props} />,
+            headerStyle: {
+              backgroundColor: "rgba(50, 50, 50, 0.85)",
+            },
           }}
         />
         <Stack.Screen
           name="Movie-Item"
           component={MovieItemView}
-          options={{ title: "Details" }}
+          options={{
+            title: "Details",
+            headerTintColor: "#FAFAFA",
+            headerStyle: {
+              backgroundColor: "rgba(50, 50, 50, 0.85)",
+            },
+          }}
         />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: "rgba(50, 50, 50, 0.85)",
-//     margin: "20rem",
-//   },
-// });

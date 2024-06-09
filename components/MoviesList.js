@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  Dimensions,
   StyleSheet,
   View,
   Image,
@@ -13,9 +12,6 @@ import { useNavigation } from "@react-navigation/native";
 function MoviesList() {
   const [movie, setMovie] = React.useState([]);
   const navigation = useNavigation();
-  // const handlePress = () => {
-  //   navigation.navigate('Movie-Item')
-  // };
 
   React.useEffect(() => {
     getMoviesFromApiAsync(), [];
@@ -52,7 +48,7 @@ function MoviesList() {
             onPress={() => navigation.navigate("Movie-Item", item)}
           >
             <Image
-              style={{ width: "100%", height: 100 }}
+              style={styles.Img}
               source={{
                 uri: `https://image.tmdb.org/t/p/w1280${item.backdrop_path}`,
               }}
@@ -64,7 +60,6 @@ function MoviesList() {
             </View>
           </TouchableOpacity>
         )}
-        // contentContainerStyle={styles.movieContainer}
         keyExtractor={(item) => item.id}
       />
     </View>
@@ -75,25 +70,21 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#222",
+    justifyContent: "center",
     padding: 10,
   },
   movieItem: {
     marginVertical: 5,
     marginHorizontal: 5,
-    // margin: 5,
-    // padding: 2,
-    // alignItems: "center",
-    // justifyContent: "center",
-    width: Dimensions.get("window").width / 3 - 20,
+    width: "30%",
   },
-  // movieContainer: {
-    
-  //   // flexDirection: "row",
-  //   // flexWrap: "wrap",
-  // },
+  Img: {
+    width: "100%",
+    height: 100,
+  },
   headerSep: {
     borderBottomWidth: 2,
-    borderColor: "blue",
+    borderColor: "#1d81e2",
     fontSize: 20,
     color: "#FAFAFA",
     padding: 5,

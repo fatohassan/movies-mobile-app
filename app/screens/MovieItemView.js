@@ -2,20 +2,22 @@ import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import Card from "../../shared/card";
 
-function MovieItemView({ navigation, route }) {
+function MovieItemView({ route }) {
   return (
-    <View>
+    <View style={styles.container}>
       <Card>
-        <View style={styles.container}>
-          <Text style={styles.title}>{route.params.original_title}</Text>
-          <Text>{route.params.overview}</Text>
-        </View>
+        <Text style={styles.title}>{route.params.original_title}</Text>
+        <Text>{route.params.overview}</Text>
       </Card>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#222",
+  },
   title: {
     marginBottom: 10,
     fontWeight: "bold",
