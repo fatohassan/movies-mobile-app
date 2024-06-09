@@ -42,7 +42,7 @@ function MoviesList() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.headerSep}>Now playing</Text>
+      <Text style={styles.headerSep}>Now Playing</Text>
       <FlatList
         data={movie}
         numColumns={3}
@@ -59,12 +59,12 @@ function MoviesList() {
               resizeMode={"contain"}
             />
             <View>
-              <Text style={{ color: "#FAFAFA" }}>{item.original_title}</Text>
+              <Text style={styles.title}>{item.original_title}</Text>
               <Text style={{ color: "#777777" }}>{item.release_date}</Text>
             </View>
           </TouchableOpacity>
         )}
-        contentContainerStyle={styles.movieContainer}
+        // contentContainerStyle={styles.movieContainer}
         keyExtractor={(item) => item.id}
       />
     </View>
@@ -78,24 +78,30 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   movieItem: {
-    paddingVertical: 5,
-    margin: 5,
-    padding: 2,
-    alignItems: "center",
-    justifyContent: "center",
+    marginVertical: 5,
+    marginHorizontal: 5,
+    // margin: 5,
+    // padding: 2,
+    // alignItems: "center",
+    // justifyContent: "center",
     width: Dimensions.get("window").width / 3 - 20,
   },
-  movieContainer: {
-    padding: 5,
-    // flexDirection: "row",
-    // flexWrap: "wrap",
-  },
+  // movieContainer: {
+    
+  //   // flexDirection: "row",
+  //   // flexWrap: "wrap",
+  // },
   headerSep: {
     borderBottomWidth: 2,
     borderColor: "blue",
     fontSize: 20,
     color: "#FAFAFA",
     padding: 5,
+  },
+  title: {
+    fontWeight: "bold",
+    fontSize: 15,
+    color: "#FAFAFA",
   },
 });
 

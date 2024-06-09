@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View } from "react-native-web";
+import { StyleSheet, View } from "react-native";
 
 export default function Card(props) {
   return (
@@ -10,6 +10,19 @@ export default function Card(props) {
 }
 
 const styles = StyleSheet.create({
-  card: {},
-  cardContent: {},
+  card: {
+    borderRadius: 6,
+    // distance of the card from the screen
+    elevation: 3,
+    backgroundColor: "#fff",
+    shadowOffset: { width: 1, height: 1 },
+    shadowOpacity: 0.3,
+    shadowRadius: 2,
+    marginHorizontal: 4,
+    marginVertical: 6,
+  },
+  cardContent: {
+    marginHorizontal: 18,
+    marginVertical: 10,
+  },
 });

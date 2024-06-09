@@ -20,7 +20,7 @@ export default function App() {
         <Stack.Screen
           name="Movie-Item"
           component={MovieItemView}
-          options={{ title: "Review Details" }}
+          options={{ title: "Details" }}
         />
       </Stack.Navigator>
     </NavigationContainer>
