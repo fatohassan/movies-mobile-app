@@ -1,12 +1,13 @@
-import React from 'react';
-import { View } from 'react-native';
+import React from "react";
+import { View, Text } from "react-native";
 
-function MovieItem(props) {
-    return (
-        <View>
-            
-        </View>
-    );
+function MovieItem() {
+  return (
+    <View>
+      {/* <Text>{route.params.original_title}</Text>
+            <Text>{route.params.overview}</Text> */}
+    </View>
+  );
 }
 
 export default MovieItem;
