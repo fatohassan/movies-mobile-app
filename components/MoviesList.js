@@ -47,16 +47,18 @@ function MoviesList() {
             style={styles.movieItem}
             onPress={() => navigation.navigate("Movie-Item", item)}
           >
-            <Image
-              style={styles.Img}
-              source={{
-                uri: `https://image.tmdb.org/t/p/w1280${item.backdrop_path}`,
-              }}
-              resizeMode={"contain"}
-            />
+            <View style={styles.imgView}>
+              <Image
+                style={styles.Img}
+                source={{
+                  uri: `https://image.tmdb.org/t/p/w1280${item.backdrop_path}`,
+                }}
+                resizeMode={"stretch"}
+              />
+            </View>
             <View>
               <Text style={styles.title}>{item.original_title}</Text>
-              <Text style={{ color: "#777777" }}>{item.release_date}</Text>
+              <Text style={styles.releaseDate}>{item.release_date}</Text>
             </View>
           </TouchableOpacity>
         )}
@@ -79,8 +81,11 @@ const styles = StyleSheet.create({
     width: "30%",
   },
   Img: {
-    width: "100%",
-    height: 100,
+    aspectRatio: 1.2,
+  },
+  imgView: {
+    borderRadius: 5,
+    borderWidth: 1,
   },
   headerSep: {
     borderBottomWidth: 2,
@@ -88,11 +93,15 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: "#FAFAFA",
     padding: 5,
+    marginBottom: 10
   },
   title: {
     fontWeight: "bold",
     fontSize: 15,
     color: "#FAFAFA",
+  },
+  releaseDate: {
+    color: "#777777",
   },
 });
 

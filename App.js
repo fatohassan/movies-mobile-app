@@ -1,18 +1,21 @@
-// import { StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import MovieItemView from "./app/screens/MovieItemView";
 import MoviesListView from "./app/screens/MoviesListView";
-import { Text } from "react-native";
+import { Text, View } from "react-native";
+// import SearchBar from "./components/SearchBar";
 
 const Stack = createNativeStackNavigator();
 
 function LogoTitle() {
   return (
-    <Text style={{ color: "#FAFAFA", fontWeight: "bold", fontSize: 20 }}>
-      Trail
-      <Text style={{ color: "#1d81e2" }}>Spot</Text>
-    </Text>
+    <View>
+      <Text style={{ color: "#FAFAFA", fontWeight: "bold", fontSize: 20 }}>
+        Trail
+        <Text style={{ color: "#1d81e2" }}>Spot</Text>
+      </Text>
+      {/* <SearchBar /> */}
+    </View>
   );
 }
 
