@@ -1,4 +1,5 @@
 import React from "react";
+import axios from 'axios';
 import {
   StyleSheet,
   View,
@@ -14,13 +15,16 @@ function MoviesList() {
   const navigation = useNavigation();
 
   React.useEffect(() => {
-    getMoviesFromApiAsync(), [];
-  });
+    getMoviesFromApiAsync();
+  }, []);
 
   const getMoviesFromApiAsync = async () => {
     try {
-      const response = await fetch(
-        "https://api.themoviedb.org/3/movie/popular?api_key=300d2fb47e3f5f8d5e569ce27884acdc",
+      const response = await axios.get(
+        // "https://api.themoviedb.org/3/movie/popular?api_key=300d2fb47e3f5f8d5e569ce27884acdc",
+        // localhost must be changed with the IP address of device in order to avoid network error
+        // when connecting to a local server
+        "http://localhost:5000/",
         {
           method: "GET",
           headers: {
@@ -29,8 +33,9 @@ function MoviesList() {
           },
         }
       );
-      const data = await response.json();
-      setMovie(data.results);
+      const data = await response.data;
+      // console.log(data)
+      setMovie(data);
     } catch (error) {
       console.log(error.message);
     }
